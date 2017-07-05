@@ -1,0 +1,25 @@
+<div class="well well-lg">
+<p>
+  <strong>Name:</strong>
+  <%= @task.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @task.description %>
+</p>
+
+<p>
+  <strong>Start:</strong>
+  <%= @task.start.strftime("%B %d, %Y, %A") %>
+</p>
+
+<p>
+  <strong>End:</strong>
+  <%= @task.end.strftime("%B %d, %Y, %A") %>
+</p>
+
+<%= link_to 'Edit', edit_task_path(@task), class: 'btn btn-warning btn-sm'  %> |
+<%= link_to 'Back', tasks_path, class: 'btn btn-default btn-sm'  %>
+</div>
+

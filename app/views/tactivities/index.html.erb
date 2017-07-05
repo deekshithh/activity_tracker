@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="page-header">
+    <h2 id="timeline">Activities in <%= @task.name %> Task</h2>
+    <p align="center"><%= @task.start.strftime("%B %d, %Y, %A")%>&nbsp<i class="glyphicon glyphicon-calendar"></i>&nbsp<%= @task.end.strftime("%B %d, %Y, %A")%></p>
+    <p><%= link_to 'New activity', new_task_tactivity_path, class: "btn btn-default btn-block"%></p>
+  </div>
+  <% @tactivities.each_with_index  do |tactivity, index| %>
+  <ul class="timeline">
+  <% if(index%2==0) %>
+    <li>
+      <div class="timeline-badge success"><i class="glyphicon glyphicon-hand-left"></i></div>
+      <div class="timeline-panel">
+        <div class="timeline-heading">
+          <h4 class="timeline-title"><%= tactivity.name %></h4>
+          <p><small class="text-muted "><i class="glyphicon glyphicon-time"></i>&nbsp<%= tactivity.hours %> hours <span id="date-right" <i class="glyphicon glyphicon-calendar"></i>&nbsp<%= tactivity.start_date.strftime("%B %d, %Y, %A") %></span></small></p>
+        </div>
+        <br>
+        <div class="timeline-body">
+        <!----> 
+          <p><%= tactivity.description %></p>
+          <br>
+          <p><%= link_to 'Edit', edit_task_tactivity_path(@task,tactivity), class: "btn btn-warning btn-xs"%> <%= link_to 'Destroy', [@task,tactivity],class: "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Are you sure?' } %></p>
+        </div>
+      </div>
+    </li>
+    <% else %>
+    <li class="timeline-inverted">
+      <div class="timeline-badge warning"><i class="glyphicon glyphicon-hand-right"></i></div>
+      <div class="timeline-panel">
+        <div class="timeline-heading">
+          <h4 class="timeline-title"><%= tactivity.name %></h4>
+          <p><small class="text-muted "><i class="glyphicon glyphicon-time"></i>&nbsp<%= tactivity.hours %> hours <span id="date-right" <i class="glyphicon glyphicon-calendar"></i>&nbsp<%= tactivity.start_date.strftime("%B %d, %Y, %A") %></span></small></p>
+        </div>
+        <br>
+        <div class="timeline-body">
+          <p><%= tactivity.description %></p>
+          <br>
+          <p><%= link_to 'Edit', edit_task_tactivity_path(@task,tactivity), class: "btn btn-warning btn-xs"%> <%= link_to 'Destroy', [@task,tactivity],class: "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Are you sure?' } %></p>
+        </div>
+      </div>
+    </li>
+    <% end %>
+  </ul>
+  <% end %>
+</div>

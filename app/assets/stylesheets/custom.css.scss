@@ -1,0 +1,55 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import 'bootstrap/theme';
+.html{
+	height: 100%;
+	width: 100%;
+}
+
+
+
+.jumbotron{
+ background-image: url('/assets/images.jpg');
+background-size: cover;
+margin-top: 15%;
+}
+
+.jumbotron h1 {
+color: #fff;
+text-align: center;
+margin-top: 2%;
+margin-bottom: 2%;
+font-weight: bold;
+}
+.application{
+	margin-bottom: 5%;
+}
+.jumbotron p {
+color: #fff;
+text-align: center;
+verticle-align: center;
+font-weight: bold;
+
+}
+.navbar-header{
+	font-style: bold;
+}
+.footer{
+     position: fixed;
+     bottom: 0%;
+     left: 0%;
+     right: 0%;
+     height: 3%;
+     background-color: black;
+}
+footer p{
+    color: #fff;
+	text-align: center;
+}
+.jumbotron p .btn-lg {
+    color: white;
+}
+navbar li{
+ color: white;
+    
+}

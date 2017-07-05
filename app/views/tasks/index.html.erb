@@ -1,0 +1,40 @@
+<p>
+<%= link_to 'New Task', new_task_path, class: "btn btn-success" %>
+</p>
+<br>
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Listing Tasks</div>
+
+  <!-- Table -->
+  <table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Start</th>
+      <th>End</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= task.name %></td>
+        <td><%= task.description.truncate(20) %></td>
+        <td><%= task.start.strftime("%B %d, %Y %A") %></td>
+        <td><%= task.end.strftime("%B %d, %Y %A") %></td>
+        <td><%= link_to 'Show', task , class: "btn btn-default btn-sm"%></td>
+        <td><%= link_to 'Edit', edit_task_path(task), class: "btn btn-info btn-sm" %></td>
+        <td><%= link_to 'Destroy', task, class: "btn btn-danger btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to task_tactivities_path(task), :class => 'btn btn-warning btn-sm' do %>
+        Activities <span class="badge"><%= Tactivity.where(task_id: task.id).count %></span>
+       <% end %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+

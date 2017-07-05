@@ -1,0 +1,8 @@
+<div class="r"  align= "center">
+<h1 align= "center">New activity</h1>
+<p align="center"><%= @task.start.strftime("%B %d, %Y, %A")%>&nbsp<i class="glyphicon glyphicon-calendar"></i>&nbsp<%= @task.end.strftime("%B %d, %Y, %A")%></p>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', task_tactivities_path , class: 'btn btn-default', align: "center"%>
+</div>
